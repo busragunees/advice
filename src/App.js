@@ -10,7 +10,7 @@ function App() {
       <Router>
         <div className="container">
           <Routes>
-            <Route path="/" element={<Advice />}></Route>
+            <Route path="/advice" element={<Advice />}></Route>
             <Route path="/favorites" element={<Favorites />}></Route> 
            {/* favori advice'ların tutlacağı page eklenecek.  */}
           </Routes>

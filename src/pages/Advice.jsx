@@ -5,7 +5,7 @@ import Card from "../components/Card";
 import "../App.scss";
 import "../components/Button.scss"
 import Button from "../components/Button"
-
+const advice="";
 function Advice() {
   const [advice, setAdvice] = useState("");
   const getAdvice = () => {
