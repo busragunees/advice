@@ -8,11 +8,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="container">
+        <div className="container" style={{backgroundImage: "url(https://images.hdqwalls.com/download/dark-blue-green-gradient-4k-i4-1366x768.jpg)" }}>
           <Routes>
-            <Route path="/advice" element={<Advice />}></Route>
+            <Route path="/" element={<Advice />}></Route>
             <Route path="/favorites" element={<Favorites />}></Route> 
-           {/* favori advice'ların tutlacağı page eklenecek.  */}
           </Routes>
         </div>
       </Router>
