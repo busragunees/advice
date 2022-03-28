@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useReducer } from "react";
 import { withParamsAndNavigate } from "../util/Navigate";
 import axios from "axios";
 import Card from "../components/Card";
 import "../App.scss";
-import "../components/Button.scss"
-import Button from "../components/Button"
-const advice="";
+import "../components/Button.scss";
+import Button from "../components/Button";
+import {reducer, initialState} from "../components/Reducer";
+
+
+
+const advice = "";
 function Advice() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   const [advice, setAdvice] = useState("");
   const getAdvice = () => {
     axios
@@ -14,15 +20,33 @@ function Advice() {
       .then((response) => {
         console.log(response.data);
         setAdvice(response.data.slip);
+        dispatch({type:'toggle_button',active:response.data.slip})
+        state.active=response.data.slip;
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  // useEffect(() => {
-  //   getAdvice();
-  // }, []);
+  useEffect(() => {
+    getAdvice();
+    getWallpaper();
+  }, []);
 
+  const getWallpaper = () => {
+    axios
+      .get("https://api.pexels.com/v1/search", {
+        headers: {
+          Authorization: `563492ad6f917000010000016e78dcefe4424433a945c38427567d4a`,
+        },
+        params: { query: "sky", per_page: 3, page: Math.floor(Math.random() * 100) },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="container-card">
       <div className="card">
@@ -33,10 +57,9 @@ function Advice() {
           {/* <button className="btn" onClick={(e) => getAdvice()}>
             shuffle
           </button> */}
-          <Button getAdvice={getAdvice}/>  
+          <Button getAdvice={getAdvice} />
         </div>
       </div>
-      
     </div>
   );
 }
