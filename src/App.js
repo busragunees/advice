@@ -7,7 +7,7 @@ import Favorites from "./pages/Favorites";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="container" style={{backgroundImage: "url(https://images.hdqwalls.com/download/dark-blue-green-gradient-4k-i4-1366x768.jpg)" }}>
           <Routes>
             <Route path="/" element={<Advice />}></Route>
