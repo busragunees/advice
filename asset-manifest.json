@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/advice_react_app/static/css/main.0ef75284.css",
-    "main.js": "/advice_react_app/static/js/main.c437f57d.js",
+    "main.css": "/advice_react_app/static/css/main.ad30a66e.css",
+    "main.js": "/advice_react_app/static/js/main.9a0cec81.js",
     "index.html": "/advice_react_app/index.html",
-    "main.0ef75284.css.map": "/advice_react_app/static/css/main.0ef75284.css.map",
-    "main.c437f57d.js.map": "/advice_react_app/static/js/main.c437f57d.js.map"
+    "main.ad30a66e.css.map": "/advice_react_app/static/css/main.ad30a66e.css.map",
+    "main.9a0cec81.js.map": "/advice_react_app/static/js/main.9a0cec81.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ef75284.css",
-    "static/js/main.c437f57d.js"
+    "static/css/main.ad30a66e.css",
+    "static/js/main.9a0cec81.js"
   ]
 }
