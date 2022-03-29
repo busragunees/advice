@@ -1,32 +1,33 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { withParamsAndNavigate } from "../util/Navigate";
 import axios from "axios";
 import Card from "../components/Card";
 import "../App.scss";
 import "../components/Button.scss";
 import Button from "../components/Button";
-import Typewriter from "typewriter-effect";
 
-const advice = "";
+
+
 function Advice() {
+ 
   const [wallpaper, setWallpaper] = useState("");
   const [advice, setAdvice] = useState("");
+
+
+
   const getAdvice = () => {
     getWallpaper();
     axios
       .get("https://api.adviceslip.com/advice")
       .then((response) => {
-        console.log(response.data);
+        console.log("response ->",response.data.slip);
+      
         setAdvice(response.data.slip);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  useEffect(() => {
-    getAdvice();
-    getWallpaper();
-  }, []);
 
   const getWallpaper = () => {
     axios
@@ -36,7 +37,7 @@ function Advice() {
         },
         params: {
           query: "sky",
-          per_page: 3,
+          per_page: 1,
           page: Math.floor(Math.random() * 100),
         },
       })
@@ -48,6 +49,12 @@ function Advice() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    getAdvice();
+    getWallpaper();
+  }, []);
+
   return (
     <div
       className="background"
@@ -61,10 +68,7 @@ function Advice() {
           <div className="advice-container">
             <Card className="text" {...advice} />
             <h1 className="line">☀︎</h1>
-            {/* <button className="btn" onClick={(e) => getAdvice()}>
-            shuffle
-          </button> */}
-            <Button getAdvice={getAdvice} />
+            <Button onClick={getAdvice} />
           </div>
         </div>
       </div>

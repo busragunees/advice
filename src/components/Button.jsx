@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import ReactiveButton from 'reactive-button';
 
-function App({getAdvice}) {
+function App({onClick}) {
     const [state, setState] = useState('idle');
 
-
-
+    
     const onClickHandler = () => {
-        getAdvice()
+        onClick()
         setState('loading');
         setTimeout(() => {
             setState('success');

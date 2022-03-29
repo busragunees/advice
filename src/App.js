@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Advice from "./pages/Advice";
 import Favorites from "./pages/Favorites";
-
 
 
 function App() {
@@ -22,4 +20,3 @@ function App() {
 }
 
 export default App;
-// ReactDOM.render(<App />, document.getElementById("root"));
