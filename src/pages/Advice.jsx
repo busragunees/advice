@@ -38,7 +38,7 @@ function Advice() {
         params: {
           query: "sky",
           per_page: 1,
-          page: Math.floor(Math.random() * 100),
+          page: Math.floor(Math.random() * 500),
         },
       })
       .then((response) => {
