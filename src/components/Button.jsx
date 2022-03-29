@@ -7,22 +7,26 @@ function App({getAdvice}) {
 
 
     const onClickHandler = () => {
+        getAdvice()
         setState('loading');
         setTimeout(() => {
             setState('success');
-        }, 2000);}
+        }, 4000);}
     
 
     return (
         <ReactiveButton
             buttonState={state}
-            color={'green'}
+            color={'light'}
             animation={true}
-            onClick={(e) => getAdvice()}
+            onClick={(e) => onClickHandler()}
             rounded={true}
             outline={true}
             shadow={true}
             idleText={'shuffle'}
+            loadingText={"loading"}
+            successText={"shuffle"}
+            className={'class1 class2'}
         />
     );
 }
